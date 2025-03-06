@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>// index.html
+        function validateLoginForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+        
+            if (!username) {
+                alert('Username cannot be null.');
+                return false;
+            }
+            if (!password) {
+                alert('Password cannot be null.');
+                return false;
+            }
+        
+            // Retrieve user details from local storage
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser && storedUser.username === username && storedUser.password === password) {
+                // alert('Login successful! Redirecting to home page...');
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 1000);
+            } else {
+                alert('Invalid username or password.');
+                return false;
+            }
+        
+            return false;
+        }</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form onsubmit="return validateLoginForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <p><a href="admin_login.html">Admin Login</a></p>
+    </div>
+</body>
+</html>

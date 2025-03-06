@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        function adminLogin(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const fixedUsername = 'admin';
+    const fixedPassword = 'admin123';
+
+    if (username === fixedUsername && password === fixedPassword) {
+        localStorage.setItem('admin', JSON.stringify({ username }));
+        // alert('Login successful! Redirecting to admin dashboard...');
+        window.location.href = 'admin_home.html';
+    } else {
+        alert('Invalid username or password.');
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Admin Login</h1>
+        <form onsubmit="adminLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <div class="login-options">
+            <button onclick="window.location.href='index.html'">User Login</button>
+        </div>
+    </div>
+</body>
+</html>

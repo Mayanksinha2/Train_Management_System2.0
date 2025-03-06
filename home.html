@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home_styles.css">
+    <script src="/js/user.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bookTicket">Book Ticket</a></li>
+                <li><a href="#viewTicket">View Ticket</a></li>
+                <li><a href="#updateDetails">Update Details</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to the Home Page</h2>
+            <div class="aggregate-section">
+                <h3>Table Aggregate Section</h3>
+                <div id="ticketsPerClass"></div>
+                <div id="salesPerQuarter"></div>
+            </div>
+        </section>
+        <section id="bookTicket">
+            <h3>Book Ticket</h3>
+            <form id="bookTicketForm">
+                <label for="userId">ID:</label>
+                <input type="text" id="userId" name="userId" readonly><br><br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" required><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br><br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+                <label for="boardingStation">Boarding Station:</label>
+                <input type="text" id="boardingStation" name="boardingStation" required><br><br>
+                <label for="destinationStation">Destination Station:</label>
+                <input type="text" id="destinationStation" name="destinationStation" required><br><br>
+                <label for="ticketCategory">Ticket Category:</label>
+                <select id="ticketCategory" name="ticketCategory" required>
+                    <option value="First class">First class</option>
+                    <option value="A.C tier 1">A.C tier 1</option>
+                    <option value="A.C tier 2">A.C tier 2</option>
+                    <option value="Tatkal">Tatkal</option>
+                </select><br><br>
+                <label for="train">Trains available:</label>
+                <select id="train" name="train" required>
+                    <!-- Options populated via JS -->
+                </select><br><br>
+                <label for="numberOfTickets">Number of tickets:</label>
+                <input type="number" id="numberOfTickets" name="numberOfTickets" required><br><br>
+                <input type="submit" value="Book Ticket">
+            </form>
+        </section>
+        <section id="viewTicket">
+            <h3>View Ticket</h3>
+            <div id="ticketsContainer"></div>
+        </section>
+        <section id="updateDetails">
+            <h3>Update Details</h3>
+            <form onsubmit="event.preventDefault(); updateDetails();">
+                <label for="updateEmail">Email:</label>
+                <input type="email" id="updateEmail" name="updateEmail" required><br><br>
+                <label for="updateMobile">Mobile Number:</label>
+                <input type="text" id="updateMobile" name="updateMobile" required><br><br>
+                <label for="updateAddress">Address:</label>
+                <input type="text" id="updateAddress" name="updateAddress" required><br><br>
+                <label for="updatePassword">Update Password:</label>
+                <input type="password" id="updatePassword" name="updatePassword"><br><br>
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" name="currentPassword"><br><br>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword"><br><br>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+                <input type="submit" value="Update Details">
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Train Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

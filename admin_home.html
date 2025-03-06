@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="/css/admin_styles.css">
+    <script src="/js/admin.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#registerTrain">Register a Train</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="home">
+            <h2>Admin Dashboard</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Tickets Booked Per Class</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Tickets</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticketsPerClass">
+                            <!-- Data populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <h3>Sales Per Quarter</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quarter</th>
+                                <th>Sales (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesPerQuarter">
+                            <!-- Data populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Customer Data</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Tickets Booked</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        <!-- Data populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="registerTrain">
+            <h3>Register a Train</h3>
+            <form onsubmit="registerTrain(event)">
+                <label for="trainName">Name of Train:</label>
+                <input type="text" id="trainName" name="trainName" required><br><br>
+                <label for="trainSeats">Number of Seats:</label>
+                <input type="number" id="trainSeats" name="trainSeats" required><br><br>
+                <label for="trainTo">To:</label>
+                <input type="text" id="trainTo" name="trainTo" required><br><br>
+                <label for="trainFrom">From:</label>
+                <input type="text" id="trainFrom" name="trainFrom" required><br><br>
+                <label for="trainOwnership">Ownership:</label>
+                <input type="text" id="trainOwnership" name="trainOwnership" required><br><br>
+                <input type="submit" value="Register Train">
+            </form>
+        </section>
+        <section id="profile">
+            <h3>Profile</h3>
+            <form onsubmit="updateProfile(event)">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="mobile" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <input type="submit" value="Update Profile">
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Train Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
