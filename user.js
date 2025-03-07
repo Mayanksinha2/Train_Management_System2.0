@@ -50,16 +50,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadAvailableTrains() {
+    const dummyTrains = [
+        { name: 'Entercity Express' },
+        { name: 'RajyaRani Express' },
+        { name: 'Coalfield Express' },
+        { name: 'Lokman Tilak Express' }
+    ];
+
     const trains = JSON.parse(localStorage.getItem('trains')) || [];
     const trainSelect = document.getElementById('train');
     trainSelect.innerHTML = '';
-    trains.forEach(train => {
+
+    dummyTrains.concat(trains).forEach(train => {
         const option = document.createElement('option');
         option.value = train.name;
         option.textContent = train.name;
         trainSelect.appendChild(option);
     });
 }
+
+
 
 function loadTickets() {
     const user = JSON.parse(localStorage.getItem('user'));
